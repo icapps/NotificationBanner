@@ -161,7 +161,7 @@ open class BaseNotificationBanner: UIView {
         }
         
         // We want to fetch the upper normal window on which we want to present the notification.
-        let normalWindow: UIWindow? = windows.last(where: { $0.windowLevel == .normal })
+        let normalWindow: UIWindow? = windows.last
         return normalWindow ?? UIApplication.shared.delegate?.window ?? nil
     }()
 
