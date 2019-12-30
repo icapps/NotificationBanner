@@ -159,9 +159,9 @@ open class BaseNotificationBanner: UIView {
         } else {
             windows = UIApplication.shared.windows
         }
-        
-        // We want to fetch the upper normal window on which we want to present the notification.
-        let normalWindow: UIWindow? = windows.last
+
+        // We want to fetch the upper window (that is not hidden) on which we want to present the notification.
+        let normalWindow: UIWindow? = windows.last(where: { !$0.isHidden })
         return normalWindow ?? UIApplication.shared.delegate?.window ?? nil
     }()
 
